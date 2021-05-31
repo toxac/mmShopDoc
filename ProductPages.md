@@ -211,6 +211,8 @@ This custom css is added to the custom product section using the shopify liquid 
 
 ```
 
+## Image Grid
 
+By default shopify/debut theme has a simple product page layout.
 
 
