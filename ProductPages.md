@@ -55,6 +55,31 @@ To the new section we have added a piece of code to first fetch all the tags for
   border-radius: 16px;
 }
 ```
+## Adding Product Brief Summary below Title
+
+This has been implemented by manually hardcoding the summary to the product-section file. Which means we have created a template for each product at the present. This will be be standardized once we settle on sections for each product. This is what most of the page-builders also end up doing under the hood.
+```html
+<div class="product-single__meta">
+    <h1 class="product-single__title">{{ product.title }}</h1>
+    <!-- Custom Block for Tags (Amit)   -->
+    <div class="zdd-tag-block">
+        {% for tag in product.tags %}
+          	<a class="zdd-tag-pill" href="/collections/all/{{ tag | handleize }}">{{ tag }}</a>
+        {% endfor %}
+        
+    </div>
+    <p>
+        Product summary text would be added here along with some styling depending on the overall font and color schemes
+    </p>
+    <!-- End Custom Block for Tags (Amit)   -->
+    ...
+```
+## Accordion for Product Details
+Ideas is to remove the information density from the product pages by hiding them using accordion. So users can click of the information they need. Below is an example of one such accordion.
+
+![Acordion Example](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fbd%2F1f%2F5f%2Fbd1f5f8644226704558c3513c720601b.gif&f=1&nofb=1)
+
+
 
 
 
