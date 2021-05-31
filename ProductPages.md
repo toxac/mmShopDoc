@@ -80,7 +80,136 @@ Ideas is to remove the information density from the product pages by hiding them
 ![Acordion Example](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fbd%2F1f%2F5f%2Fbd1f5f8644226704558c3513c720601b.gif&f=1&nofb=1)
 
 
+### Implementing Pure CSS Accordion 
+Accordion instead of using the popular option of jquery based behaviour we are going with Pure CSS. This minimizes the dependencies and additional file downloads.
 
+### HTML CODE
+We are using ***hidden radio input*** to give us access to the event of someone clicking on the tab. 
+
+```html
+<!--Main Container element for Accordion-->
+<div class="zdd-product-accordion">
+    <!-- Accordion Element -->
+    <div> 
+        <input type="radio" name="zdd_accordion" id="section1" class="zdd_accordion__input">
+        <label for="section1" class="zdd_accordion__label">Description</label>
+        <div class="zdd_accordion__content">
+            <ul>
+                <li>Premium 100% Natural Latex</li>
+                <li>Naturally Breathable and Naturally Cooling</li>
+                <li>Eco-friendly, Free From Harmful Chemicals</li>
+                <li>High Bounceback and Resilience</li>
+                <li>Highly Durable</li>
+                <li>Naturally Hypoallergenic</li>
+                <li>Anti-bacterial and Anti-fungal</li>
+                <li>Dust Mite Resistant</li>
+                <li>Innercore Technology</li>
+                <li>7 Years warranty</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <input type="radio" name="zdd_accordion" id="section2" class="zdd_accordion__input">
+        <label for="section2" class="zdd_accordion__label">Section #2</label>
+        <div class="zdd_accordion__content">
+            <ul>
+                <li>product Dimensions:&nbsp;65 x 42.5 x 16 cm</li>
+                <li>Primary Material: Natural Latex Foam Rubber</li>
+                <li>Number of Pieces: 1</li>
+                <li>Shipping Weight: 2.5 Kilograms</li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <input type="radio" name="zdd_accordion" id="section3" class="zdd_accordion__input">
+        <label for="section3" class="zdd_accordion__label">Section #3</label>
+        <div class="zdd_accordion__content">
+            <ul>
+                <li>product Dimensions:&nbsp;65 x 42.5 x 16 cm</li>
+                <li>Primary Material: Natural Latex Foam Rubber</li>
+                <li>Number of Pieces: 1</li>
+                <li>Shipping Weight: 2.5 Kilograms</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+```
+This product html is not actually manually inserted in to the template but we use the existing ***product page > description*** to add the code and then style it through the templates.
+
+### CSS styles take care of the dropdowns.
+
+```css
+.zdd-product-accordion {
+  	width: 100%;
+	margin: 0;
+  	overflow: hidden;
+}
+
+.zdd_accordion__label,
+.zdd_accordion__content {
+	width: 100%;  
+	padding: 14px 20px;
+}
+
+.zdd_accordion__label {
+  	display: block;
+  	color: #474747;
+	font-size: 1.5em;
+  	font-weight: 500;
+  	cursor: pointer;
+  	position: relative;
+  	transition: background 0.1s;
+}
+
+.zdd_accordion__label:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.zdd_accordion__label::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
+  width: 12px;
+  height: 6px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="100" height="50" xmlns="http://www.w3.org/2000/svg"><polygon points="0,0 100,0 50,50" style="fill:%2300000099;" /></svg>');
+  background-size: contain;
+  transition: transform 0.4s;
+}
+
+.zdd_accordion__content {
+  background: #ffffff;
+  line-height: 1.6;
+  font-size: 1em;
+  display: none;
+}
+
+.zdd_accordion__input {
+  display: none;
+}
+
+.zdd_accordion__input:checked ~ .zdd_accordion__content {
+  display: block;
+}
+
+.zdd_accordion__input:checked ~ .zdd_accordion__label::after {
+  transform: translateY(-50%) rotate(0.5turn);
+}
+```
+
+This custom css is added to the custom product section using the shopify liquid based functionality for adding template level css. 
+
+```js
+// add to the bottom of the custom section file 
+{% stylesheet %}
+    // All the custom styles can be copied in here
+{% endstylesheet %}
+
+```
 
 
 
