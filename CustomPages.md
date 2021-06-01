@@ -6,11 +6,11 @@ We have already used accordion element in the product description section. We ar
 
 **Important note about shopify themes**
 Shopify themes are organized into ***templates*** > ***sections*** > ***snippets***. This organization is important to understand when we start to customize pages. Following points are important to remember.
-- **templates** are top level component into which **sections** and **snippets** can be included/rendered. 
-- Sections cannot be rendered in another section 
+- **templates** are top level component into which **sections** and **snippets** can be included/rendered.
+- Sections cannot be rendered in another section
 - Custom styles and javascript are available only in section through **liquid**
-- When we include section in a template it has access to all the template variables/properties/attributes 
-- Its is good practice to define a custom section with dedicated schema, styles, and js behavior and include it into a custom template. This gives us bet of both worlds. Else we will have to included all the styles in global assets which can make it difficult to contain bugs and errors, if something were to go wrong. 
+- When we include section in a template it has access to all the template variables/properties/attributes
+- Its is good practice to define a custom section with dedicated schema, styles, and js behavior and include it into a custom template. This gives us bet of both worlds. Else we will have to included all the styles in global assets which can make it difficult to contain bugs and errors, if something were to go wrong.
 
 ### Creating duplicate page template
 Keeping this in mind we are going to create a duplicate page template ***zdd_page.liquid*** which will show up on finder sidebar under template folder as ***page.zdd_page.liquid***. This template by default is as below
@@ -34,7 +34,7 @@ Keeping this in mind we are going to create a duplicate page template ***zdd_pag
 We have modified the above template to include a new custom page section which renders the content. This gives us possibility of included custom styling alongwith the section.
 
 ### Custom Page Section
-In this new custom section we only render the page content which will be filled in using standard page creation interface of Shopify. We will use this section to define custom style using ***{% stylesheet %}.... {% endstylesheet %}*** directive. 
+In this new custom section we only render the page content which will be filled in using standard page creation interface of Shopify. We will use this section to define custom style using ***{% stylesheet %}.... {% endstylesheet %}*** directive.
 ```js
 // We render the page content through the section now
 {{ page.content }}
@@ -56,7 +56,7 @@ In this new custom section we only render the page content which will be filled 
 
 .zdd_accordion__label,
 .zdd_accordion__content {
-	width: 100%;  
+	width: 100%;
 	padding: 14px 20px;
 }
 

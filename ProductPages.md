@@ -19,7 +19,7 @@ We have replaced the original section with a new one called ***zdd-product-templ
 {% section 'product-recommendations' %}
 ```
 
-To the new section we have added a piece of code to first fetch all the tags for a given product and them display them as *pills*. In the code below, the custom ***div*** for tags is placed right below the ***product.title*** which is an <h1> element.
+To the new section we have added a piece of code to first fetch all the tags for a given product and them display them as *pills*. In the code below, the custom ***div*** for tags is placed right below the ***product.title*** which is an ***h1*** element.
 
 ```html
 <div class="product-single__meta">
@@ -33,7 +33,7 @@ To the new section we have added a piece of code to first fetch all the tags for
 ```
 #### Explanation
 - Liquid code ***{% for tag in product.tags %}*** : Gets all the tags for the product and iterates over it (for loop)
-- Anchor tag <a>..</a>: We are using achor tags to display each of the tags which is linked to collection page by tag.
+- Anchor tag <a>..</a>: We are using anchor tags to display each of the tags which is linked to collection page by tag.
 - Styles (***zdd-tag-block*** and ***zdd-tag-pill***): Tag block is to ensure spacing and layout positioning of the block while tag-pill styles the anchor tags to display as pills. The css codes for both are below. 
 
 ```css
