@@ -54,6 +54,7 @@ def main():
     data_status(formatted_data)
     print(sorted(formatted_data['exclusive'], key = lambda x: x['city']))
 
+# Add a function to return html formatted values
 
 
 if __name__ == "__main__":
